@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جامعة تكريت | Tikrit University - البوابة الرسمية</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tu: {
+                            green: '#0f4c3a',
+                            dark: '#082d22',
+                            lightgreen: '#1a644f',
+                            gold: '#c5a059',
+                            goldlight: '#e6c88b',
+                            accent: '#dfb76c',
+                            bg: '#f8fafc'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        amiri: ['Amiri', 'serif']
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        pulseGold: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.6' }
+                        }
+                    },
+                    animation: {
+                        fadeInUp: 'fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        pulseGold: 'pulseGold 2s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS for Animations & Glassmorphism -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Fade-In Classes */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(8, 45, 34, 0.94), rgba(15, 76, 58, 0.88)), 
+                        url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .gold-border-glow {
+            border-bottom: 3px solid #c5a059;
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.15);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0f4c3a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c5a059;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-tu-gold selection:text-tu-dark">
+
+    <!-- Announcement Top Bar -->
+    <header class="w-full sticky top-0 z-50 shadow-md">
+        <div class="bg-tu-dark text-slate-300 text-xs py-2 px-4 sm:px-8 border-b border-tu-gold/30 flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-4 sm:gap-6 flex-wrap">
+                <span class="flex items-center gap-1.5 hover:text-tu-gold transition cursor-default">
+                    <i class="fa-solid fa-location-dot text-tu-gold"></i> MMH4+876، تكريت، محافظة صلاح الدين - العراق
+                </span>
+                <span class="flex items-center gap-1.5 hover:text-tu-gold transition">
+                    <i class="fa-solid fa-phone text-tu-gold"></i> 
+                    <a href="tel:07812930094" class="hover:underline" dir="ltr">0781 293 0094</a>
+                </span>
+                <span class="flex items-center gap-1.5 hidden md:inline-flex text-tu-goldlight">
+                    <i class="fa-solid fa-building-columns"></i> جامعة حكومية تاسست 1987
+                </span>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2.5 border-l border-slate-700 pl-4">
+                    <span class="text-[11px] text-slate-400 font-medium">تابعنا:</span>
+                    <a href="https://youtube.com" target="_blank" rel="noopener text-slate-300" class="hover:text-red-500 transition-colors transform hover:scale-110" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener text-slate-300" class="hover:text-blue-500 transition-colors transform hover:scale-110" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener text-slate-300" class="hover:text-blue-400 transition-colors transform hover:scale-110" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <div class="text-[11px] font-bold text-tu-gold bg-tu-green/40 px-2 py-0.5 rounded border border-tu-gold/30">
+                    العربية
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="bg-tu-green text-white px-4 sm:px-8 py-3.5 flex justify-between items-center transition-all duration-300">
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-12 h-12 bg-gradient-to-tr from-tu-gold to-tu-goldlight rounded-full flex items-center justify-center text-tu-dark text-2xl font-bold border-2 border-white shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-xl sm:text-2xl tracking-wide text-white leading-tight font-cairo">جامعة تكريت</h1>
+                    <p class="text-[10px] text-tu-goldlight tracking-widest font-semibold uppercase">Tikrit University • Saladin</p>
+                </div>
+            </a>
+
+            <!-- Links -->
+            <div class="hidden lg:flex items-center gap-7 font-bold text-sm">
+                <a href="#about" class="hover:text-tu-gold transition-colors py-1 border-b-2 border-transparent hover:border-tu-gold">عن الجامعة</a>
+                <a href="#colleges" class="hover:text-tu-gold transition-colors py-1 border-b-2 border-transparent hover:border-tu-gold">الكليات والتخصصات</a>
+                <a href="#alumni" class="hover:text-tu-gold transition-colors py-1 border-b-2 border-transparent hover:border-tu-gold">الخريجون البارزون</a>
+                <a href="#news" class="hover:text-tu-gold transition-colors py-1 border-b-2 border-transparent hover:border-tu-gold">الأخبار والإعلانات</a>
+                <a href="#google-info" class="hover:text-tu-gold transition-colors py-1 border-b-2 border-transparent hover:border-tu-gold">بيانات التواصل</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="flex items-center gap-3">
+                <a href="#google-info" class="bg-tu-gold hover:bg-tu-goldlight text-tu-dark font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm shadow-lg hover:shadow-xl transition transform active:scale-95 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-info"></i> <span class="hidden sm:inline">بطاقة الجامعة الرسمية</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow space-y-12">
+        
+        <!-- Hero Banner Section -->
+        <section id="about" class="fade-in-section hero-bg rounded-3xl p-6 sm:p-12 text-white shadow-2xl relative overflow-hidden gold-border-glow">
+            <div class="absolute -top-12 -left-12 w-48 h-48 bg-tu-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative z-10 max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-tu-gold/20 border border-tu-gold/60 text-tu-goldlight text-xs font-bold px-4 py-1.5 rounded-full mb-6 backdrop-blur-md">
+                    <i class="fa-solid fa-award text-tu-gold"></i> جامعة حكومية عراقية عريقة منذ 1987
+                </div>
+                
+                <h2 class="text-3xl sm:text-5xl font-black mb-6 leading-tight font-cairo">
+                    جامعة تكريت<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-tu-goldlight via-white to-tu-gold">منارة العلم والتطوير في صلاح الدين</span>
+                </h2>
+                
+                <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-8 font-light">
+                    جامعة تكريت هي إحدى كبريات الجامعات الحكومية في جمهورية العراق، تقع في قلب محافظة صلاح الدين. تأسست عام 1987 وتضم بيئة تعليمية وبحثية متكاملة تحتضن أكثر من 30,000 طالب وطالبة في شتى التخصصات الطبية، الهندسة، والتطبيقية والإنسانية.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#colleges" class="bg-tu-gold hover:bg-tu-goldlight text-tu-dark font-black px-6 py-3 rounded-xl text-sm shadow-xl transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap"></i> استكشف التخصصات
+                    </a>
+                    <a href="tel:07812930094" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-6 py-3 rounded-xl text-sm backdrop-blur-md transition flex items-center gap-2">
+                        <i class="fa-solid fa-phone"></i> اتصل ببدالة الجامعة
+                    </a>
+                </div>
+            </div>
+
+            <!-- Animated Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 pt-8 border-t border-white/15">
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center transform hover:scale-105 transition">
+                    <span class="block text-3xl sm:text-4xl font-black text-tu-goldlight" id="stat-year">1987</span>
+                    <span class="text-xs text-slate-300 font-medium">سنة التأسيس</span>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center transform hover:scale-105 transition">
+                    <span class="block text-3xl sm:text-4xl font-black text-tu-goldlight">+30,000</span>
+                    <span class="text-xs text-slate-300 font-medium">طالب وطالبة</span>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center transform hover:scale-105 transition">
+                    <span class="block text-3xl sm:text-4xl font-black text-tu-goldlight">22+</span>
+                    <span class="text-xs text-slate-300 font-medium">كلية ومعهد بكتيريا</span>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center transform hover:scale-105 transition">
+                    <span class="block text-3xl sm:text-4xl font-black text-tu-goldlight">4.4★</span>
+                    <span class="text-xs text-slate-300 font-medium">تقييم جوجل الرسمي</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Layout Split: Colleges & Features (Left/Main) vs Google Sidebar (Right) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left Main Column (2/3 width) -->
+            <div class="lg:col-span-2 space-y-10">
+
+                <!-- Colleges Section with Tabs & Search Filter -->
+                <section id="colleges" class="fade-in-section bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                        <div>
+                            <h3 class="text-2xl font-black text-tu-green flex items-center gap-2">
+                                <i class="fa-solid fa-graduation-cap text-tu-gold"></i> كليات وتخصصات جامعة تكريت
+                            </h3>
+                            <p class="text-xs text-slate-500 font-medium mt-1">ابحث واستكشف الكليات العلمية والإنسانية بالجامعة</p>
+                        </div>
+
+                        <!-- Filter Search -->
+                        <div class="relative w-full sm:w-64">
+                            <input type="text" id="facultySearch" placeholder="ابحث عن كلية..." class="w-full pl-9 pr-4 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-tu-green transition">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Category Buttons -->
+                    <div class="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-none">
+                        <button onclick="filterColleges('all')" class="college-tab active bg-tu-green text-white font-bold text-xs px-4 py-2 rounded-xl transition whitespace-nowrap">الكل</button>
+                        <button onclick="filterColleges('medical')" class="college-tab bg-slate-100 text-slate-700 hover:bg-slate-200 font-bold text-xs px-4 py-2 rounded-xl transition whitespace-nowrap">الكليات الطبية</button>
+                        <button onclick="filterColleges('engineering')" class="college-tab bg-slate-100 text-slate-700 hover:bg-slate-200 font-bold text-xs px-4 py-2 rounded-xl transition whitespace-nowrap">الهندسية والعلمية</button>
+                        <button onclick="filterColleges('humanities')" class="college-tab bg-slate-100 text-slate-700 hover:bg-slate-200 font-bold text-xs px-4 py-2 rounded-xl transition whitespace-nowrap">الإنسانية والقانون</button>
+                    </div>
+
+                    <!-- Colleges Cards Container -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="collegesGrid">
+                        
+                        <!-- Medical -->
+                        <div class="college-item medical p-5 rounded-2xl border border-slate-100 bg-slate-50/80 hover:bg-white hover:border-tu-gold hover:shadow-md transition duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg">
+                                    <i class="fa-solid fa-user-doctor"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">كلية الطب البشري</h4>
+                                    <span class="text-[10px] text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">المجمع الطبي</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">تُخرج أطباء كفاءات عالية بالتعاون مع المستشفيات التعليمية والمختبرات الحديثة في العراق.</p>
+                        </div>
+
+                        <div class="college-item medical p-5 rounded-2xl border border-slate-100 bg-slate-50/80 hover:bg-white hover:border-tu-gold hover:shadow-md transition duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-lg">
+                                    <i class="fa-solid fa-tooth"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">كلية طب الأسنان</h4>
+                                    <span class="text-[10px] text-teal-700 font-semibold bg-teal-50 px-2 py-0.5 rounded">المجمع الطبي</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">تضم عيادات استشارية تعليمية تقدم الخدمات الطبية المجانية وتدرب الطلاب تطبيقياً.</p>
+                        </div>
+
+                        <!-- Engineering & Science -->
+                        <div class="college-item engineering p-5 rounded-2xl border border-slate-100 bg-slate-50/80 hover:bg-white hover:border-tu-gold hover:shadow-md transition duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-lg">
+                                    <i class="fa-solid fa-gears"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">كلية الهندسة</h4>
+                                    <span class="text-[10px] text-blue-700 font-semibold bg-blue-50 px-2 py-0.5 rounded">الهندسة والتكنولوجيا</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">تضم أقسام الهندسة المدنية، الكهربائية، الميكانيكية وهندسة النفط والغاز المتطورة.</p>
+                        </div>
+
+                        <div class="college-item engineering p-5 rounded-2xl border border-slate-100 bg-slate-50/80 hover:bg-white hover:border-tu-gold hover:shadow-md transition duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-800 flex items-center justify-center font-bold text-lg">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">علوم الحاسوب والرياضيات</h4>
+                                    <span class="text-[10px] text-indigo-700 font-semibold bg-indigo-50 px-2 py-0.5 rounded">التقنية والذكاء الإصطناعي</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">تأهيل المتخصصين في الذكاء الاصطناعي، الأمن السيبراني وبرمجة النظم والموقع الجغرافي.</p>
+                        </div>
+
+                        <!-- Humanities -->
+                        <div class="college-item humanities p-5 rounded-2xl border border-slate-100 bg-slate-50/80 hover:bg-white hover:border-tu-gold hover:shadow-md transition duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg">
+                                    <i class="fa-solid fa-book-open"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">التربية للعلوم الإنسانية</h4>
+                                    <span class="text-[10px] text-amber-700 font-semibold bg-amber-50 px-2 py-0.5 rounded">العلوم الإنسانية</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">تخريج كوادر تدريسية وبحثية متميزة في علوم اللغات، التاريخ والعلوم الاجتماعية.</p>
+                        </div>
+
+                        <div class="college-item humanities p-5 rounded-2xl border border-slate-100 bg-slate-50/80 hover:bg-white hover:border-tu-gold hover:shadow-md transition duration-300">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-lg">
+                                    <i class="fa-solid fa-scale-balanced"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">كلية الحقوق</h4>
+                                    <span class="text-[10px] text-purple-700 font-semibold bg-purple-50 px-2 py-0.5 rounded">الدراسات القانونية</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">إعداد رجال القانون والقضاة والمستشارين القانونيين للعمل في كافة المؤسسات.</p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Notable Alumni Banner -->
+                <section id="alumni" class="fade-in-section bg-gradient-to-r from-tu-green to-tu-dark text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl sm:text-2xl font-black flex items-center gap-2">
+                            <i class="fa-solid fa-user-graduate text-tu-gold"></i> خريجون بارزون (Anciens élèves célèbres)
+                        </h3>
+                        <span class="text-xs text-tu-goldlight font-bold">فخر جامعة تكريت</span>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-5">
+                        <div class="w-20 h-20 bg-tu-gold text-tu-dark rounded-full flex items-center justify-center text-3xl font-extrabold flex-shrink-0 shadow-lg border-2 border-white">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div class="text-center sm:text-right">
+                            <div class="inline-block bg-tu-gold/30 text-tu-goldlight text-[11px] font-bold px-3 py-0.5 rounded-full mb-1">شخصية بارزة</div>
+                            <h4 class="text-lg font-extrabold text-white">إبراهيم نامس الجبوري (Ibrahim Namis Al-Jubouri)</h4>
+                            <p class="text-xs text-slate-200 mt-1 leading-relaxed">
+                                وزير التربية العراقي - أحد أشهر خريجي جامعة تكريت الذين أثروا المشهد الأكاديمي والقيادي في العراق.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- News Section -->
+                <section id="news" class="fade-in-section bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-tu-green mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-newspaper text-tu-gold"></i> الأخبار والإعلانات الجامعية
+                    </h3>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition border border-slate-100 flex items-start gap-4 cursor-pointer">
+                            <div class="bg-tu-green text-tu-gold text-center px-3 py-2 rounded-lg text-xs font-bold flex-shrink-0">
+                                <span class="block text-base">11</span> أكت
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-800 hover:text-tu-green transition">فتح باب التسجيل والقبول للعام الدراسي الجديد</h4>
+                                <p class="text-xs text-slate-500 mt-1">تعلن رئاسة جامعة تكريت عن بدء استقبال الطلبة الجدد في مختلف الكليات العلمية والإنسانية.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition border border-slate-100 flex items-start gap-4 cursor-pointer">
+                            <div class="bg-tu-green text-tu-gold text-center px-3 py-2 rounded-lg text-xs font-bold flex-shrink-0">
+                                <span class="block text-base">08</span> أكت
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-800 hover:text-tu-green transition">مؤتمر البحث العلمي الدولي الثالث بمدينة تكريت</h4>
+                                <p class="text-xs text-slate-500 mt-1">بمشاركة باحثين دوليين لمناقشة أحدث تقنيات الهندسة والتنمية المستدامة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Sidebar Column (1/3 width) - Google Knowledge Panel Style -->
+            <aside id="google-info" class="space-y-6">
+                
+                <div class="fade-in-section bg-white rounded-3xl p-6 shadow-xl border border-slate-200 space-y-6 sticky top-24">
+                    
+                    <!-- Title & Header -->
+                    <div class="border-b border-slate-100 pb-5">
+                        <div class="flex justify-between items-start gap-2">
+                            <div>
+                                <h3 class="text-2xl font-black text-tu-dark font-cairo">جامعة تكريت</h3>
+                                <p class="text-xs text-slate-500 font-semibold mt-0.5">Université à Tikrit | Tikrit University</p>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap">جامعة حكومية</span>
+                        </div>
+
+                        <!-- Rating Panel -->
+                        <div class="flex items-center gap-3.5 mt-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100">
+                            <span class="text-3xl font-black text-tu-green">4.4</span>
+                            <div>
+                                <div class="text-amber-400 text-xs space-x-0.5 flex">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                                <span class="text-xs text-slate-600 font-bold block mt-0.5">4,4509 avis Google</span>
+                                <span class="text-[11px] text-slate-400">بناءً على 509 تقييم رسمي</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Details List -->
+                    <div class="space-y-4 text-xs">
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-lg bg-tu-green/10 text-tu-green flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="font-bold block text-slate-800">العنوان الرسمي (Adresse)</span>
+                                <span class="text-slate-600 leading-relaxed">MMH4+876, Tikrit, Saladin Governorate, Iraq</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-lg bg-tu-green/10 text-tu-green flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </div>
+                            <div>
+                                <span class="font-bold block text-slate-800">تاريخ التأسيس (Création)</span>
+                                <span class="text-slate-600">1987 (تاريخ عريق)</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-lg bg-tu-green/10 text-tu-green flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <div>
+                                <span class="font-bold block text-slate-800">نوع المؤسسة (Type d'établissement)</span>
+                                <span class="text-slate-600">جامعة حكومية (Université publique)</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-lg bg-tu-green/10 text-tu-green flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="font-bold block text-slate-800">رقم الهاتف (Téléphone)</span>
+                                <a href="tel:07812930094" class="text-tu-green font-extrabold hover:underline text-sm" dir="ltr">0781 293 0094</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-lg bg-tu-green/10 text-tu-green flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <span class="font-bold block text-slate-800">أوقات العمل (Horaires)</span>
+                                <span class="inline-block text-red-600 font-bold bg-red-50 px-2 py-0.5 rounded mt-0.5">Fermé - مغلق حالياً</span>
+                                <span class="block text-[11px] text-emerald-700 font-medium mt-1">
+                                    <i class="fa-regular fa-clock"></i> Ouvre à 08:00 lun (يفتح 08:00 ص الإثنين)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="grid grid-cols-2 gap-2.5 pt-2 border-t border-slate-100">
+                        <a href="https://maps.google.com/?q=MMH4+876,Tikrit,Saladin" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 px-3 rounded-xl font-bold text-xs transition transform active:scale-95">
+                            <i class="fa-solid fa-diamond-turn-right text-tu-green"></i> Itinéraire
+                        </a>
+                        <a href="tel:07812930094" class="flex items-center justify-center gap-2 bg-tu-green hover:bg-tu-dark text-white py-2.5 px-3 rounded-xl font-bold text-xs transition shadow-md transform active:scale-95">
+                            <i class="fa-solid fa-phone"></i> اتصل بالجامعة
+                        </a>
+                    </div>
+
+                    <!-- Social Profiles Buttons -->
+                    <div class="pt-2">
+                        <h4 class="text-xs font-bold text-slate-500 mb-3">حسابات التواصل الرسمية (Profils)</h4>
+                        <div class="grid grid-cols-3 gap-2">
+                            <a href="https://youtube.com" target="_blank" rel="noopener" class="bg-red-600 hover:bg-red-700 text-white text-center py-2.5 rounded-xl font-bold text-xs transition flex flex-col items-center justify-center gap-1 shadow">
+                                <i class="fa-brands fa-youtube text-base"></i> YouTube
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener" class="bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-xl font-bold text-xs transition flex flex-col items-center justify-center gap-1 shadow">
+                                <i class="fa-brands fa-facebook-f text-base"></i> Facebook
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="bg-blue-800 hover:bg-blue-900 text-white text-center py-2.5 rounded-xl font-bold text-xs transition flex flex-col items-center justify-center gap-1 shadow">
+                                <i class="fa-brands fa-linkedin-in text-base"></i> LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Add Review Modal Trigger -->
+                    <div class="pt-2 border-t border-slate-100 text-center">
+                        <button onclick="openReviewModal()" class="w-full py-2.5 text-xs text-tu-green font-bold hover:bg-tu-green/5 border border-tu-green/20 rounded-xl transition flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-star"></i> أضف تقييمك لجامعة تكريت (Donner un avis)
+                        </button>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Review Modal Window -->
+    <div id="reviewModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full mx-4 shadow-2xl relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeReviewModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-xl font-black text-tu-green mb-2">إضافة تقييم جديد لجامعة تكريت</h3>
+            <p class="text-xs text-slate-500 mb-4">شاركونا رأيكم بالخدمات التعليمية والأكاديمية</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكريم</label>
+                    <input type="text" placeholder="أدخل اسمك" class="w-full px-4 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-tu-green">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">التقييم</label>
+                    <div class="flex gap-2 text-amber-400 text-xl cursor-pointer">
+                        <i class="fa-solid fa-star hover:scale-125 transition"></i>
+                        <i class="fa-solid fa-star hover:scale-125 transition"></i>
+                        <i class="fa-solid fa-star hover:scale-125 transition"></i>
+                        <i class="fa-solid fa-star hover:scale-125 transition"></i>
+                        <i class="fa-solid fa-star hover:scale-125 transition"></i>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">ملاحظاتك وتقييمك</label>
+                    <textarea rows="3" placeholder="اكتب مراجعتك هنا..." class="w-full px-4 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-tu-green"></textarea>
+                </div>
+                <button onclick="submitReview()" class="w-full bg-tu-green hover:bg-tu-dark text-white font-bold py-2.5 rounded-xl text-xs transition">
+                    إرسال التقييم
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Official Footer -->
+    <footer class="bg-tu-dark text-slate-400 text-xs border-t-4 border-tu-gold mt-16 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex justify-center items-center gap-3 text-white font-extrabold text-lg">
+                <div class="w-8 h-8 bg-tu-gold rounded-full flex items-center justify-center text-tu-dark text-sm">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                جامعة تكريت - Tikrit University
+            </div>
+            <p class="max-w-2xl mx-auto text-slate-400 text-xs leading-relaxed">
+                جامعة تكريت، مدينة تكريت، محافظة صلاح الدين، العراق. تأسست عام 1987. تضم أكثر من 30,000 طالب وطالبة وتلتزم بتقديم التميز العلمي والبحثي.
+            </p>
+            <div class="pt-4 border-t border-slate-800 text-[11px] text-slate-500">
+                &copy; 1987 - 2026 جميع الحقوق محفوظة لجامعة تكريت - البوابة الإلكترونية الرسمية
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions and Intersection Observer Animations -->
+    <script>
+        // Smooth Fade Section Transition Observer
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            const fadeSections = document.querySelectorAll('.fade-in-section');
+            fadeSections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // College Faculty Filter Logic
+        function filterColleges(category) {
+            const items = document.querySelectorAll('.college-item');
+            const tabs = document.querySelectorAll('.college-tab');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-tu-green', 'text-white');
+                tab.classList.add('bg-slate-100', 'text-slate-700');
+            });
+
+            event.target.classList.remove('bg-slate-100', 'text-slate-700');
+            event.target.classList.add('bg-tu-green', 'text-white');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeInUp 0.5s ease forwards';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Search Filter for Faculties
+        document.getElementById('facultySearch')?.addEventListener('keyup', function(e) {
+            const term = e.target.value.toLowerCase();
+            const items = document.querySelectorAll('.college-item');
+
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                if (text.includes(term)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Review Modal Handlers
+        function openReviewModal() {
+            const modal = document.getElementById('reviewModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.firstElementChild.classList.remove('scale-95');
+                modal.firstElementChild.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeReviewModal() {
+            const modal = document.getElementById('reviewModal');
+            modal.classList.add('opacity-0');
+            modal.firstElementChild.classList.remove('scale-100');
+            modal.firstElementChild.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function submitReview() {
+            alert('شكراً لك! تم استلام تقييمك بنجاح وسيتم مراجعه ونشره.');
+            closeReviewModal();
+        }
+    </script>
+</body>
+</html>
